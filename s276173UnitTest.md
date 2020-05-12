@@ -76,7 +76,7 @@ Version:
 | False | - | - | Invalid | acceptableToEat(100, -2, 300) -> Error; acceptableToEat(100, 100, -300) -> Error; acceptableToEat(-100, 30, 300) -> Error |
 | True | False | - | Valid | acceptableToEat(1001, 200, 300) -> False |
 | | True | False | Valid | acceptableToEat(50, 50, 201) -> False |
-| | True | Valid | acceptableToEat(100, 100, 199) -> True | 
+| | | True | Valid | acceptableToEat(100, 100, 199) -> True | 
 
 # Parallelogram
 
