@@ -203,6 +203,7 @@ Version:
 | String null | String == null |
 | Item exits | searchItem(itemCode) != null |
 
+### Combination of predicates
 | String null | Item exits |Valid | Test |
 | -- | -- | -- | -- |
 | True | - | Invalid | addQtyToItem(null, 1) -> Error |
@@ -210,3 +211,23 @@ Version:
 | | True | Valid | Item.availability = 5; addItem(Item); addQtyToItem(Item.itemCode, 10); availabilityItem(Item.itemCode) -> 15 |
 
 ## void subtractQtyToItem(String itemCode, int qty_to_add);
+
+### Criteria
+- String null
+- Item present 
+- New availability >= 0
+
+### Predicates
+| Criteria | Predicate |
+| -- | -- |
+| String null | String == null |
+| Item exits | searchItem(itemCode) != null |
+| New availability < 0 | availabilityItem(itemCode) - qty_to_add >= 0 |
+
+### Combination of predicates
+| String null | Item exits | New availability >= 0 | Valid | Test |
+| -- | -- | -- | -- | -- |
+| True | - | - | Invalid | subtractQtyToItem(null, 1) -> Error |
+| False | False | - | Invalid | subtractQtyToItem("abc", 1) -> Exception |
+| | True | False | Valid | Item.availabilty = 3; addItem(Item); subtractItem(Item.itemCode, 4) -> Error |
+| | | True | Valid | Item.availabilty = 5; addItem(Item); subtractItem(Item.itemCode, 4); availabiltyItem(Item.itemCode) -> 1 |
