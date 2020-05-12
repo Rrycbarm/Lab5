@@ -41,12 +41,12 @@ Version:
 
 | Array not empty | Number of elements | Number of max elements | Valid | Test|
 | -- | -- | -- | -- | -- |
-| False | - | - | Invalid | Array = null; Array = \[\] |
-| True | < 3 | - | Invalid | Array = \[1, 2\] |
-| | > 3 | - | Invalid | Array = \[1, 2, 3, 4\] |
-| | 3 | 1 | Valid | Array = \[1, 2, 3\] |
-| | | 2 | Valid | Array = \[3, 2, 3\] |
-| | | 3 | Valid | Array = \[3, 3, 3\] |
+| False | - | - | Invalid | Array = null; Array = \[\] -> Error |
+| True | < 3 | - | Invalid | Array = \[1, 2\] -> Error |
+| | > 3 | - | Invalid | Array = \[1, 2, 3, 4\] -> Error |
+| | 3 | 1 | Valid | Array = \[1, 2, 3\] -> 3|
+| | | 2 | Valid | Array = \[4, 4, 2\]  -> 4|
+| | | 3 | Valid | Array = \[5, 5, 5\] -> 5|
 
 # Calories
 
