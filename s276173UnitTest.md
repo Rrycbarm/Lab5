@@ -82,9 +82,29 @@ Version:
 
 ## Criteria
 
+- Points in first quadrant  
+- Well formed parallelogram
+- Area > 0 
+
 ## Predicates 
+
+| Criteria                  | Predicate    |
+| ------------------------- | ------------ |
+| Points in first quadrant | x1 > 0 && x2 > 0 && x3 > 0 && x4 > 0 && y1 > 0 && y2 > 0 && y3 > 0 && y4 > 0 |
+| Well formed parallelogram | x1 - x2 == x3 - x4 && y1 - y2 == y3 - y4 &&
+x1 - x3 = x2 - x4 && y1 - y3 == y2 - y4 |
+| Area > 0 | result values always > 0 or -1 |
 
 ## Boundaries
 
+| Criteria            | Boundary values             |
+| ------------------- | --------------------------- | 
+
 ## Combination of predicates
 
+| Points in first quadrant | Well formed parallelogram | Area > 0 | Valid | Test |
+| -- | -- | -- | -- | -- |
+| False | - | - | Invalid | paralleloogram(1, 2, 3, 4, -5, 6, 7, 8) -> -1 |
+| True | False | - | Invalid | parallelogram(1, 5, 3, 4, 1, 1, 3, 10) -> -1 |
+| | True | False | Invalid | - |
+| | | True | Valid | parallelogram(1, 5, 4, 8, 3, 3, 7, 7) -> 16 |
