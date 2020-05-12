@@ -50,5 +50,41 @@ Version:
 
 # Calories
 
+## Criteria
+
+- All values > 0
+- Good calories
+- Good ratio
+
+## Predicates 
+
+| Criteria                  | Predicate    |
+| ------------------------- | ------------ |
+| All values > 0 | Carb > 0 and Proteins > 0 and fat > 0 |
+| Good calories | Calories < 1000 |
+| Good ratio | 2* (Carb + proteins) > fat
+
+## Boundaries
+
+| Criteria            | Boundary values             |
+| ------------------- | --------------------------- | 
+
+## Combination of predicates
+
+| All values > 0 | Good calories | Good ratio | Valid | Test |
+| -- | -- | -- | -- | -- |
+| False | - | - | Invalid | acceptableToEat(100, -2, 300) -> Error; acceptableToEat(100, 100, -300) -> Error; acceptableToEat(-100, 30, 300) -> Error |
+| True | False | - | Valid | acceptableToEat(1001, 200, 300) -> False |
+| | True | False | Valid | acceptableToEat(50, 50, 201) -> False |
+| | True | Valid | acceptableToEat(100, 100, 199) -> True | 
+
 # Parallelogram
+
+## Criteria
+
+## Predicates 
+
+## Boundaries
+
+## Combination of predicates
 
