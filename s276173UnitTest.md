@@ -167,7 +167,7 @@ Version:
 | -- | -- | -- | -- |
 | True | - | Invalid | availabilityItem(null) -> Error |
 | False | False | Invalid | availabilityItem(Item) -> Exception |
-| | True | addItem(Item); availability(Item.itemCode) -> Item.availability |
+| | True | Valid | addItem(Item); availability(Item.itemCode) -> Item.availability |
 
 ## void subtractItem (String itemCode)
 
@@ -188,8 +188,8 @@ Version:
 | -- | -- | -- | -- | -- |
 | True | - | - | Invalid | subtractItem(null) -> Error |
 | False | False | - | Invalid | subtractItem(Item) -> Exception |
-| | True | False | Item.availability = 0; addItem(Item); subtractItem(Item) -> exception |
-| | | True |Item.availability = 10;addItem(Item); subtractItem(Item) |
+| | True | False | Valid |Item.availability = 0; addItem(Item); subtractItem(Item) -> exception |
+| | | True | Valid | Item.availability = 10;addItem(Item); subtractItem(Item) |
 
 ## void addQtyToItem(String itemCode, int qty_to_add);
 
