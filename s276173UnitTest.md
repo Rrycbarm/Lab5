@@ -133,6 +133,23 @@ Version:
 
 ## Item searchItem(String itemCode)
 
+### Criteria
+- String null
+- Item exists
+
+### Predicates
+| Criteria | Predicate |
+| -- | -- |
+| String null | String == null |
+| Item exits |  |
+
+### Combination of predicates
+| String null | Item exits | Valid | Test |
+| -- | -- | -- | -- |
+| True | - | Invalid | searchItem(null) -> Error |
+| False | False | Valid | addItem(Item1); searchItem(Item1.itemcode) -> Item1 |
+| | True | Valid | searchItem("abc") -> exception |
+
 ## int availabilityItem (String itemCode)
 
 ## void subtractItem (String itemCode)
