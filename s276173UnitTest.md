@@ -193,4 +193,20 @@ Version:
 
 ## void addQtyToItem(String itemCode, int qty_to_add);
 
+### Criteria
+- String null
+- Item present 
+
+### Predicates
+| Criteria | Predicate |
+| -- | -- |
+| String null | String == null |
+| Item exits | searchItem(itemCode) != null |
+
+| String null | Item exits |Valid | Test |
+| -- | -- | -- | -- |
+| True | - | Invalid | addQtyToItem(null, 1) -> Error |
+| False | False | Invalid | addQtyToItem("abc", 1) -> Exception |
+| | True | Valid | Item.availability = 5; addItem(Item); addQtyToItem(Item.itemCode, 10); availabilityItem(Item.itemCode) -> 15 |
+
 ## void subtractQtyToItem(String itemCode, int qty_to_add);
