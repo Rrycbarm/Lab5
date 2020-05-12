@@ -165,11 +165,31 @@ Version:
 ### Combination of predicates
 | String null | Item exits |Valid | Test |
 | -- | -- | -- | -- |
-| True | -- | | Invalid | availabilityItem(null) -> Error |
-| False | False | | Invalid | availabilityItem(Item) -> Exception |
+| True | - | Invalid | availabilityItem(null) -> Error |
+| False | False | Invalid | availabilityItem(Item) -> Exception |
 | | True | addItem(Item); availability(Item.itemCode) -> Item.availability |
 
 ## void subtractItem (String itemCode)
+
+### Criteria
+- String null
+- Item present 
+- Quantity > 0
+
+### Predicates
+| Criteria | Predicate |
+| -- | -- |
+| String null | String == null |
+| Item exits | searchItem(itemCode) != null |
+| Quantity > 0 | availabilityItem(itemCode) > 0 |
+
+### Combination of predicates
+| String null | Item exits | Quantity > 0 |Valid | Test |
+| -- | -- | -- | -- | -- |
+| True | - | - | Invalid | subtractItem(null) -> Error |
+| False | False | - | Invalid | subtractItem(Item) -> Exception |
+| | True | False | Item.availability = 0; addItem(Item); subtractItem(Item) -> exception |
+| | | True |Item.availability = 10;addItem(Item); subtractItem(Item) |
 
 ## void addQtyToItem(String itemCode, int qty_to_add);
 
