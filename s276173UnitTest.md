@@ -152,6 +152,23 @@ Version:
 
 ## int availabilityItem (String itemCode)
 
+### Criteria
+- String null
+- Item exists
+
+### Predicates
+| Criteria | Predicate |
+| -- | -- |
+| String null | String == null |
+| Item exits | searchItem(itemCode) != null |
+
+### Combination of predicates
+| String null | Item exits |Valid | Test |
+| -- | -- | -- | -- |
+| True | -- | | Invalid | availabilityItem(null) -> Error |
+| False | False | | Invalid | availabilityItem(Item) -> Exception |
+| | True | addItem(Item); availability(Item.itemCode) -> Item.availability |
+
 ## void subtractItem (String itemCode)
 
 ## void addQtyToItem(String itemCode, int qty_to_add);
