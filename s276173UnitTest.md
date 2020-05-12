@@ -229,5 +229,5 @@ Version:
 | -- | -- | -- | -- | -- |
 | True | - | - | Invalid | subtractQtyToItem(null, 1) -> Error |
 | False | False | - | Invalid | subtractQtyToItem("abc", 1) -> Exception |
-| | True | False | Valid | Item.availabilty = 3; addItem(Item); subtractItem(Item.itemCode, 4) -> Error |
-| | | True | Valid | Item.availabilty = 5; addItem(Item); subtractItem(Item.itemCode, 4); availabiltyItem(Item.itemCode) -> 1 |
+| | True | False | Valid | Item.availabilty = 3; addItem(Item); subtractQtyToItem(Item.itemCode, 4) -> Error |
+| | | True | Valid | Item.availabilty = 5; addItem(Item); subtractQtyToItem(Item.itemCode, 4); availabiltyItem(Item.itemCode) -> 1 |
