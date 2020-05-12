@@ -11,6 +11,7 @@ Version:
 - [Order Integers](#order-integers)
 - [Calories](#calories)
 - [Parallelogram](#parallelogram)
+- [Inventory](#inventory)
 
 # Order Integers
 
@@ -107,3 +108,35 @@ Version:
 | True | False | - | Invalid | parallelogram(1, 5, 3, 4, 1, 1, 3, 10) -> -1 |
 | | True | False | Invalid | - |
 | | | True | Valid | parallelogram(1, 5, 4, 8, 3, 3, 7, 7) -> 16 |
+
+# Inventory
+
+## addItem(Item I)
+
+### Criteria
+- Item null
+- Item exists already
+
+### Predicates 
+
+| Criteria | Predicate |
+| -- | -- |
+| Item null | Item == null |
+| Item exits already | searchItem(Item.itemCode) == null |
+
+### Combination of predicates
+| Item null | Item exits already | Valid | Test |
+| -- | -- | -- | -- |
+| True | - | Invalid | addItem(null) -> Error |
+| False | False | Valid | addItem(Item1)
+| | True | Valid | addItem(Item1); addItem(Item1) -> exception |
+
+## Item searchItem(String itemCode)
+
+## int availabilityItem (String itemCode)
+
+## void subtractItem (String itemCode)
+
+## void addQtyToItem(String itemCode, int qty_to_add);
+
+## void subtractQtyToItem(String itemCode, int qty_to_add);
